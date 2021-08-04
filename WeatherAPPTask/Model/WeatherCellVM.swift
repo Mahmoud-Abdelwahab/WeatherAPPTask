@@ -13,7 +13,7 @@ struct WeatherCellVM {
     var weatherDescription: String?
     var dtTxt: String?
     
-    init(list: List) {
+    init(list: WeatherList) {
         self.temp               = "\(list.main?.temp ?? 0.0)º"
         self.humidity           = "\(list.main?.humidity ?? 0)"
         self.weatherDescription = list.weather?.first?.weatherDescription

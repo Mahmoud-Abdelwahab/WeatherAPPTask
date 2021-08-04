@@ -2,24 +2,27 @@
 //  WeatherResponse.swift
 //  WeatherAPPTask
 //
-//  Created by Mahmoud Abdul-Wahab on 03/08/2021.
+//  Created by Mahmoud Abdul-Wahab on 04/08/2021.
 //
 
 import Foundation
 
-
 // MARK: - WeatherResponse
 struct WeatherResponse: Codable {
-    let cod: String?
-    let message: Int?
-    let list: [List]?
+    var list =  [WeatherList]()
+    var city: City?
+}
+
+// MARK: - City
+struct City: Codable {
+    var name: String?
 }
 
 // MARK: - List
-struct List: Codable {
-    let main: Main?
-    let weather: [Weather]?
-    let dtTxt: String?
+struct WeatherList: Codable {
+    var main: Main?
+    var weather: [Weather]?
+    var dtTxt: String?
 
     enum CodingKeys: String, CodingKey {
         case main, weather
@@ -29,13 +32,13 @@ struct List: Codable {
 
 // MARK: - Main
 struct Main: Codable {
-    let temp: Double?
-    let humidity: Int?
+    var temp: Double?
+    var humidity: Int?
 }
 
 // MARK: - Weather
 struct Weather: Codable {
-    let  weatherDescription: String?
+    var weatherDescription: String?
 
     enum CodingKeys: String, CodingKey {
         case weatherDescription = "description"

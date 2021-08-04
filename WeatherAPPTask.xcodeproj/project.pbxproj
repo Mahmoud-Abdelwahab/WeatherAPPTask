@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -24,13 +24,21 @@
 		A7F331FF26B9EEF8002FCE71 /* WeatherPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F331FE26B9EEF8002FCE71 /* WeatherPresenter.swift */; };
 		A7F3320526B9F051002FCE71 /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F3320426B9F051002FCE71 /* BaseVC.swift */; };
 		A7F3320726B9F2AE002FCE71 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F3320626B9F2AE002FCE71 /* UIViewController+Ext.swift */; };
-		A7F3320B26B9F6A1002FCE71 /* WeatherVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F3320A26B9F6A1002FCE71 /* WeatherVM.swift */; };
+		A7F3320B26B9F6A1002FCE71 /* WeatherCellVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F3320A26B9F6A1002FCE71 /* WeatherCellVM.swift */; };
 		A7F3321126B9F831002FCE71 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F3321026B9F831002FCE71 /* Constants.swift */; };
 		A7F3321526B9F994002FCE71 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F3321426B9F994002FCE71 /* AppError.swift */; };
 		A7F3322326BA3726002FCE71 /* NetworkLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F3322226BA3726002FCE71 /* NetworkLayer.swift */; };
 		A7F3322626BA4192002FCE71 /* RemoteSearchWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F3322526BA4192002FCE71 /* RemoteSearchWorker.swift */; };
 		A7F3322826BA42D1002FCE71 /* RemoteSearchWorkerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F3322726BA42D1002FCE71 /* RemoteSearchWorkerProtocol.swift */; };
 		A7F3322A26BA4B5C002FCE71 /* BaseRouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F3322926BA4B5C002FCE71 /* BaseRouterProtocol.swift */; };
+		A7F3322D26BA7DA2002FCE71 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = A7F3322C26BA7DA2002FCE71 /* RealmSwift */; };
+		A7F3323126BA7ED3002FCE71 /* LocalSearchWorkerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F3323026BA7ED3002FCE71 /* LocalSearchWorkerProtocol.swift */; };
+		A7F3323326BA7EEC002FCE71 /* LocalSearchWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F3323226BA7EEC002FCE71 /* LocalSearchWorker.swift */; };
+		A7F3323726BA820C002FCE71 /* RealManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F3323626BA820C002FCE71 /* RealManger.swift */; };
+		A7F3323926BA8291002FCE71 /* LocalWeatherVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F3323826BA8291002FCE71 /* LocalWeatherVM.swift */; };
+		A7F3323B26BAAFF4002FCE71 /* AppHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F3323A26BAAFF4002FCE71 /* AppHelper.swift */; };
+		A7F3324126BAF145002FCE71 /* NetworkLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F3322226BA3726002FCE71 /* NetworkLayer.swift */; };
+		A7F3324226BAF149002FCE71 /* RealManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F3323626BA820C002FCE71 /* RealManger.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,13 +82,18 @@
 		A7F331FE26B9EEF8002FCE71 /* WeatherPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherPresenter.swift; sourceTree = "<group>"; };
 		A7F3320426B9F051002FCE71 /* BaseVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
 		A7F3320626B9F2AE002FCE71 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
-		A7F3320A26B9F6A1002FCE71 /* WeatherVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherVM.swift; sourceTree = "<group>"; };
+		A7F3320A26B9F6A1002FCE71 /* WeatherCellVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCellVM.swift; sourceTree = "<group>"; };
 		A7F3321026B9F831002FCE71 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A7F3321426B9F994002FCE71 /* AppError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		A7F3322226BA3726002FCE71 /* NetworkLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLayer.swift; sourceTree = "<group>"; };
 		A7F3322526BA4192002FCE71 /* RemoteSearchWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteSearchWorker.swift; sourceTree = "<group>"; };
 		A7F3322726BA42D1002FCE71 /* RemoteSearchWorkerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteSearchWorkerProtocol.swift; sourceTree = "<group>"; };
 		A7F3322926BA4B5C002FCE71 /* BaseRouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRouterProtocol.swift; sourceTree = "<group>"; };
+		A7F3323026BA7ED3002FCE71 /* LocalSearchWorkerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalSearchWorkerProtocol.swift; sourceTree = "<group>"; };
+		A7F3323226BA7EEC002FCE71 /* LocalSearchWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalSearchWorker.swift; sourceTree = "<group>"; };
+		A7F3323626BA820C002FCE71 /* RealManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealManger.swift; sourceTree = "<group>"; };
+		A7F3323826BA8291002FCE71 /* LocalWeatherVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalWeatherVM.swift; sourceTree = "<group>"; };
+		A7F3323A26BAAFF4002FCE71 /* AppHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +101,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7F3322D26BA7DA2002FCE71 /* RealmSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,11 +145,11 @@
 		A7E7E28C26B8EA8D0007DADF /* WeatherAPPTask */ = {
 			isa = PBXGroup;
 			children = (
-				A7F3322426BA4140002FCE71 /* Worker */,
-				A7F3320C26B9F7AA002FCE71 /* Network Layer */,
+				A7F3323426BA7F1E002FCE71 /* Managers */,
+				A7F331E026B994A2002FCE71 /* Model */,
 				A7F3320026B9F003002FCE71 /* Core */,
 				A7F331F026B9E9B6002FCE71 /* Module */,
-				A7F331E026B994A2002FCE71 /* Model */,
+				A7F3322426BA4140002FCE71 /* Worker */,
 				A7F3320826B9F63B002FCE71 /* Resources */,
 				A7F3320926B9F67C002FCE71 /* Configuration */,
 				A7E7E29B26B8EA900007DADF /* Info.plist */,
@@ -174,7 +188,8 @@
 			isa = PBXGroup;
 			children = (
 				A7F331E126B994BA002FCE71 /* WeatherResponse.swift */,
-				A7F3320A26B9F6A1002FCE71 /* WeatherVM.swift */,
+				A7F3320A26B9F6A1002FCE71 /* WeatherCellVM.swift */,
+				A7F3323826BA8291002FCE71 /* LocalWeatherVM.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -247,18 +262,19 @@
 			path = Configuration;
 			sourceTree = "<group>";
 		};
-		A7F3320C26B9F7AA002FCE71 /* Network Layer */ = {
+		A7F3320C26B9F7AA002FCE71 /* Network Manager */ = {
 			isa = PBXGroup;
 			children = (
 				A7F3322226BA3726002FCE71 /* NetworkLayer.swift */,
 			);
-			path = "Network Layer";
+			path = "Network Manager";
 			sourceTree = "<group>";
 		};
 		A7F3320F26B9F81B002FCE71 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
 				A7F3321026B9F831002FCE71 /* Constants.swift */,
+				A7F3323A26BAAFF4002FCE71 /* AppHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -266,10 +282,45 @@
 		A7F3322426BA4140002FCE71 /* Worker */ = {
 			isa = PBXGroup;
 			children = (
+				A7F3322F26BA7E30002FCE71 /* LocalSearchWorker  */,
+				A7F3322E26BA7DF7002FCE71 /* RemoteSearchWorker  */,
+			);
+			path = Worker;
+			sourceTree = "<group>";
+		};
+		A7F3322E26BA7DF7002FCE71 /* RemoteSearchWorker  */ = {
+			isa = PBXGroup;
+			children = (
 				A7F3322726BA42D1002FCE71 /* RemoteSearchWorkerProtocol.swift */,
 				A7F3322526BA4192002FCE71 /* RemoteSearchWorker.swift */,
 			);
-			path = Worker;
+			path = "RemoteSearchWorker ";
+			sourceTree = "<group>";
+		};
+		A7F3322F26BA7E30002FCE71 /* LocalSearchWorker  */ = {
+			isa = PBXGroup;
+			children = (
+				A7F3323026BA7ED3002FCE71 /* LocalSearchWorkerProtocol.swift */,
+				A7F3323226BA7EEC002FCE71 /* LocalSearchWorker.swift */,
+			);
+			path = "LocalSearchWorker ";
+			sourceTree = "<group>";
+		};
+		A7F3323426BA7F1E002FCE71 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				A7F3320C26B9F7AA002FCE71 /* Network Manager */,
+				A7F3323526BA7F32002FCE71 /* Realm Manager */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		A7F3323526BA7F32002FCE71 /* Realm Manager */ = {
+			isa = PBXGroup;
+			children = (
+				A7F3323626BA820C002FCE71 /* RealManger.swift */,
+			);
+			path = "Realm Manager";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -288,6 +339,9 @@
 			dependencies = (
 			);
 			name = WeatherAPPTask;
+			packageProductDependencies = (
+				A7F3322C26BA7DA2002FCE71 /* RealmSwift */,
+			);
 			productName = WeatherAPPTask;
 			productReference = A7E7E28A26B8EA8D0007DADF /* WeatherAPPTask.app */;
 			productType = "com.apple.product-type.application";
@@ -359,6 +413,9 @@
 				Base,
 			);
 			mainGroup = A7E7E28126B8EA8D0007DADF;
+			packageReferences = (
+				A7F3322B26BA7DA2002FCE71 /* XCRemoteSwiftPackageReference "realm-cocoa" */,
+			);
 			productRefGroup = A7E7E28B26B8EA8D0007DADF /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -409,16 +466,21 @@
 				A7F3320726B9F2AE002FCE71 /* UIViewController+Ext.swift in Sources */,
 				A7E7E2C126B911D90007DADF /* WeatherCell.swift in Sources */,
 				A7F331E226B994BA002FCE71 /* WeatherResponse.swift in Sources */,
-				A7F3320B26B9F6A1002FCE71 /* WeatherVM.swift in Sources */,
+				A7F3320B26B9F6A1002FCE71 /* WeatherCellVM.swift in Sources */,
 				A7F3322326BA3726002FCE71 /* NetworkLayer.swift in Sources */,
 				A7F331FA26B9ECD1002FCE71 /* WeatherVC.swift in Sources */,
+				A7F3323926BA8291002FCE71 /* LocalWeatherVM.swift in Sources */,
 				A7F3322826BA42D1002FCE71 /* RemoteSearchWorkerProtocol.swift in Sources */,
 				A7F3321526B9F994002FCE71 /* AppError.swift in Sources */,
+				A7F3323126BA7ED3002FCE71 /* LocalSearchWorkerProtocol.swift in Sources */,
+				A7F3323726BA820C002FCE71 /* RealManger.swift in Sources */,
 				A7F331F326B9E9DF002FCE71 /* String+EXT.swift in Sources */,
+				A7F3323B26BAAFF4002FCE71 /* AppHelper.swift in Sources */,
 				A7F331FF26B9EEF8002FCE71 /* WeatherPresenter.swift in Sources */,
 				A7E7E28E26B8EA8D0007DADF /* AppDelegate.swift in Sources */,
 				A7F3321126B9F831002FCE71 /* Constants.swift in Sources */,
 				A7F331F526B9EB2D002FCE71 /* WeatherRouter.swift in Sources */,
+				A7F3323326BA7EEC002FCE71 /* LocalSearchWorker.swift in Sources */,
 				A7F331FD26B9EEE7002FCE71 /* WeatherInteractor.swift in Sources */,
 				A7F3322626BA4192002FCE71 /* RemoteSearchWorker.swift in Sources */,
 			);
@@ -428,6 +490,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7F3324226BAF149002FCE71 /* RealManger.swift in Sources */,
+				A7F3324126BAF145002FCE71 /* NetworkLayer.swift in Sources */,
 				A7E7E2A526B8EA910007DADF /* WeatherAPPTaskTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -739,6 +803,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A7F3322B26BA7DA2002FCE71 /* XCRemoteSwiftPackageReference "realm-cocoa" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-cocoa.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.12.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A7F3322C26BA7DA2002FCE71 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A7F3322B26BA7DA2002FCE71 /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = RealmSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A7E7E28226B8EA8D0007DADF /* Project object */;
 }

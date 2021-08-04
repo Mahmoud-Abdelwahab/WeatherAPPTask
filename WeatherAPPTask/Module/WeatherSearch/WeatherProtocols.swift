@@ -2,19 +2,20 @@
 //  WeatherRouterProtocol.swift
 //  WeatherAPPTask
 //
-//  Created by Mahmoud Abdul-Wahab on 03/08/2021.
+//  Created by Mahmoud Abdul-Wahab on 04/08/2021.
 //
 
 import Foundation
 
 protocol WeatherViewProtocol:BaseViewControllerProtocol, AnyObject{
     var presenter: WeatherPresenterProtocol?{get set}
-    var weatherListDataSource:[List]?{get set}
+    var weatherListDataSource:[WeatherList]?{get set}
     
     func configureWeatherTableView()
-    func configureUI(weatherList: [List])
+    func configureUI(weatherList: [WeatherList])
     func configureDialogView(isHidden: Bool ,buttonIsHidden: Bool, message: String)
     func showHideDialog(isHidden: Bool)
+    func showHideAccuracyLable(isHidden: Bool)
     func emptyView()
 }
 
@@ -23,7 +24,7 @@ protocol WeatherPresenterProtocol:AnyObject{
     
     func viewDidLoad()
     func doSearch(with cityName: String?)
-    func configueCell(cell: WeatherCellViewProtocol, weatherList: List?)
+    func configueCell(cell: WeatherCellViewProtocol, weatherList: WeatherList?)
 }
 
 // Router
@@ -36,13 +37,16 @@ protocol WeatherRouterProtocol:BaseRouterProtocol {
 protocol  WeatherInteractorInputProtocol {
     var presenter: WeatherInteractorOutputProtocol?{get set}
     var remoteSearchWorker: RemoteSearchWorkerProtocol?{get set}
+    var localSearchWorker: LocalSearchWorkerProtocol?{get set}
     
-    func doSearch(with cityName: String)
+    func remoteSearch(with cityName: String)
+    func localSearch(with cityName: String)
     
 }
 
 protocol  WeatherInteractorOutputProtocol:AnyObject {
-    func weatherListFetchedSuccessfully(weather: WeatherResponse)
+    func remoteWeatherListFetchedSuccessfully(weather: WeatherResponse)
+    func localWeatherListFetchedSuccessfully(weather: WeatherResponse)
     func weatherFetchingFailed(with error: String)
 }
 

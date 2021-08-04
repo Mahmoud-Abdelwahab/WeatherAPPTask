@@ -21,6 +21,7 @@ extension WeatherRouter: WeatherRouterProtocol{
         view.presenter          = presenter
         interactor.presenter    = presenter
         interactor.remoteSearchWorker = RemoteSearchWorker()
+        interactor.localSearchWorker  = LocalSearchWorker()
         router.viewController   = view
         return view
     }

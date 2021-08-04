@@ -2,7 +2,7 @@
 //  WeatherInteractor.swift
 //  WeatherAPPTask
 //
-//  Created by Mahmoud Abdul-Wahab on 03/08/2021.
+//  Created by Mahmoud Abdul-Wahab on 04/08/2021.
 //
 
 import Foundation
@@ -10,18 +10,34 @@ import Foundation
 class WeatherInteractor {
     weak var presenter: WeatherInteractorOutputProtocol?
     var remoteSearchWorker: RemoteSearchWorkerProtocol?
+    var localSearchWorker:  LocalSearchWorkerProtocol?
 }
 
 extension WeatherInteractor: WeatherInteractorInputProtocol{
     
-    func doSearch(with cityName: String) {
+    func remoteSearch(with cityName: String) {
         remoteSearchWorker?.weatherSearchByCityName(cityName: cityName){[weak self] response , error in
-                guard let self = self else {return}
+            guard let self = self else {return}
+            guard let response = response else{
+                self.localSearch(with: cityName)
+                return
+            }
+            self.presenter?.remoteWeatherListFetchedSuccessfully(weather: response)
+            self.localSearchWorker?.addCountryWeather(localWeather: AppHelper.mappingRemoteWeatherToLocalWeather(weatherResponse: response))
+        }
+    }
+    
+    func localSearch(with cityName: String) {
+        self.localSearchWorker?.weatherSearchByCityName(cityName: cityName){
+            [weak self] response , error in
+            guard let self = self else {return}
             guard let response = response else{
                 self.presenter?.weatherFetchingFailed(with: error!)
                 return
             }
-            self.presenter?.weatherListFetchedSuccessfully(weather: response)
-            }
+            let weatherObject = AppHelper.mappingLocalWeatherToRemoteWeather(localWeather: response)
+            self.presenter?.localWeatherListFetchedSuccessfully(weather: weatherObject)
         }
+    }
+    
 }

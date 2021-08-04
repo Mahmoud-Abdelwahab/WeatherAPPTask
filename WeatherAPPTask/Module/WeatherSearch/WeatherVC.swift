@@ -2,7 +2,7 @@
 //  WeatherVC.swift
 //  WeatherAPPTask
 //
-//  Created by Mahmoud Abdul-Wahab on 03/08/2021.
+//  Created by Mahmoud Abdul-Wahab on 04/08/2021.
 //
 
 import UIKit
@@ -17,7 +17,7 @@ class WeatherVC: UIViewController {
     @IBOutlet weak var weatherTableView: UITableView!
     
     var presenter: WeatherPresenterProtocol?
-    var weatherListDataSource: [List]?
+    var weatherListDataSource: [WeatherList]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,6 +51,7 @@ extension WeatherVC: WeatherViewProtocol{
     @objc func textFieldDidChange(_ textField: UITextField) {
         if textField.text == ""{
             emptyView()
+            showHideAccuracyLable(isHidden: true)
             configureDialogView(isHidden: false, buttonIsHidden: true, message: "Enter City Name")
         }
     }
@@ -65,7 +66,7 @@ extension WeatherVC: WeatherViewProtocol{
         stopActivityIndicator()
     }
     
-    func configureUI(weatherList: [List]){
+    func configureUI(weatherList: [WeatherList]){
         self.weatherListDataSource = weatherList
         weatherTableView.reloadData()
     }
@@ -83,6 +84,10 @@ extension WeatherVC: WeatherViewProtocol{
     func emptyView() {
         weatherListDataSource?.removeAll()
         weatherTableView.reloadData()
+    }
+    
+    func showHideAccuracyLable(isHidden: Bool){
+        notAcuurateDataLable.isHidden = isHidden
     }
 }
 

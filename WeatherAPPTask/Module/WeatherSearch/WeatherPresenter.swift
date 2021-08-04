@@ -2,7 +2,7 @@
 //  WeatherPresenter.swift
 //  WeatherAPPTask
 //
-//  Created by Mahmoud Abdul-Wahab on 03/08/2021.
+//  Created by Mahmoud Abdul-Wahab on 04/08/2021.
 //
 
 import Foundation
@@ -27,7 +27,7 @@ extension WeatherPresenter: WeatherPresenterProtocol,WeatherInteractorOutputProt
       
     }
     
-    func configueCell(cell: WeatherCellViewProtocol, weatherList: List?) {
+    func configueCell(cell: WeatherCellViewProtocol, weatherList: WeatherList?) {
         guard  let list = weatherList else {
             return
         }
@@ -41,21 +41,33 @@ extension WeatherPresenter: WeatherPresenterProtocol,WeatherInteractorOutputProt
             return
         }
         view?.showLoadingIndicatore()
-        interactor?.doSearch(with: cityName)
+        interactor?.remoteSearch(with: cityName)
     }
     
-    func weatherListFetchedSuccessfully(weather: WeatherResponse) {
+    func remoteWeatherListFetchedSuccessfully(weather: WeatherResponse) {
         DispatchQueue.main.async {
             self.view?.hideLoadingIndicatore()
             self.view?.showHideDialog(isHidden: true)
-            self.view?.configureUI(weatherList: weather.list ?? [])
+            self.view?.configureUI(weatherList: weather.list)
+            self.view?.showHideAccuracyLable(isHidden: true)
         }
     }
+    
+    func localWeatherListFetchedSuccessfully(weather: WeatherResponse){
+        DispatchQueue.main.async {
+            self.view?.hideLoadingIndicatore()
+            self.view?.showHideDialog(isHidden: true)
+            self.view?.configureUI(weatherList: weather.list)
+            self.view?.showHideAccuracyLable(isHidden: false)
+        }
+    }
+
     
     func weatherFetchingFailed(with error: String) {
         DispatchQueue.main.async {
             self.view?.hideLoadingIndicatore()
          //   self.router?.showAlert(title: "Error", message: error)
+            self.view?.showHideAccuracyLable(isHidden: true)
             self.view?.emptyView()
             self.view?.configureDialogView(isHidden: false, buttonIsHidden: false, message: error)
         }
