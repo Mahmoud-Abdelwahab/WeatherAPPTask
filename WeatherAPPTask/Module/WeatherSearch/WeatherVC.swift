@@ -10,21 +10,28 @@ import UIKit
 class WeatherVC: UIViewController {
 
     @IBOutlet weak var notAcuurateDataLable: UILabel!
+    @IBOutlet weak var dialogMessageLable: UILabel!
     @IBOutlet weak var retryButton: UIButton!
     @IBOutlet weak var dialogView: UIView!
     @IBOutlet weak var searchTF: UITextField!
-    
     @IBOutlet weak var weatherTableView: UITableView!
     
     var presenter: WeatherPresenterProtocol?
+    var weatherListDataSource: [List]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        presenter?.viewDidLoad()
+        configureWeatherTableView()
+    
     }
 
     @IBAction func didTapSearchBtn(_ sender: Any) {
-        
+        presenter?.doSearch(with: searchTF.text)
+    }
+    
+    @IBAction func didTapRetryBtn(_ sender: Any) {
+        presenter?.doSearch(with: searchTF.text)
     }
     
 }
@@ -32,15 +39,20 @@ class WeatherVC: UIViewController {
 
 
 extension WeatherVC: WeatherViewProtocol{
-    
-    
-    func configureTeamsTableView(){
+
+    func configureWeatherTableView(){
+        searchTF.addTarget(self, action: #selector(textFieldDidChange(_:)),
+                                  for: .editingChanged)
+        
         weatherTableView.dataSource   = self
-       // weatherTableView.register(TeamCell.nib(), forCellReuseIdentifier: TeamCell.identifier)
+        weatherTableView.register(WeatherCell.nib(), forCellReuseIdentifier: WeatherCell.identifier)
     }
     
-    func reloadTeamListTableView() {
-       
+    @objc func textFieldDidChange(_ textField: UITextField) {
+        if textField.text == ""{
+            emptyView()
+            configureDialogView(isHidden: false, buttonIsHidden: true, message: "Enter City Name")
+        }
     }
     
     func showLoadingIndicatore() {
@@ -53,24 +65,37 @@ extension WeatherVC: WeatherViewProtocol{
         stopActivityIndicator()
     }
     
-//    func configureUI(teams: [Team]){
-//        self.teamsDataSource = teams
-//        teamsTableView.reloadData()
-//    }
+    func configureUI(weatherList: [List]){
+        self.weatherListDataSource = weatherList
+        weatherTableView.reloadData()
+    }
+    
+    func showHideDialog(isHidden: Bool){
+        dialogView.isHidden = isHidden
+    }
+    
+    func configureDialogView(isHidden: Bool = true, buttonIsHidden: Bool = true , message: String = "") {
+        dialogView.isHidden     = isHidden
+        retryButton.isHidden    = buttonIsHidden
+        dialogMessageLable.text = message
+    }
+    
+    func emptyView() {
+        weatherListDataSource?.removeAll()
+        weatherTableView.reloadData()
+    }
 }
 
-extension WeatherVC:UITableViewDataSource{
+extension WeatherVC: UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       // teamsDataSource?.count ?? 0
-        10
+        weatherListDataSource?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = teamsTableView.dequeueReusableCell(withIdentifier: TeamCell.identifier) as! TeamCell
-//        presenter?.configueCell(cell: cell, team: teamsDataSource?[indexPath.row])
-        //       return cell
-        UITableViewCell()
+        let cell = weatherTableView.dequeueReusableCell(withIdentifier: WeatherCell.identifier) as! WeatherCell
+        presenter?.configueCell(cell: cell, weatherList: weatherListDataSource?[indexPath.row])
+        return cell
     }
     
 }

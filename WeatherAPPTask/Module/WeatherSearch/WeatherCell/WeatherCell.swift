@@ -8,16 +8,27 @@
 import UIKit
 
 class WeatherCell: UITableViewCell {
+    static let identifier = "WeatherCell"
 
+    @IBOutlet weak var humidityLable: UILabel!
+    @IBOutlet weak var statusLable: UILabel!
+    @IBOutlet weak var temptetureLable: UILabel!
+    @IBOutlet weak var houreLable: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    static func nib()->UINib{
+        UINib(nibName: WeatherCell.identifier, bundle: Bundle.main)
     }
     
+}
+
+extension WeatherCell: WeatherCellViewProtocol{
+    func configure(viewModel: WeatherCellVM) {
+        temptetureLable.text    = "Temp: \(viewModel.temp ?? "0")"
+        statusLable.text        = "Status: \(viewModel.weatherDescription ?? "")"
+        humidityLable.text      = "Humidity: \(viewModel.humidity ?? "")"
+        houreLable.text         = "Time: \(viewModel.dtTxt ?? "")"
+    }
 }

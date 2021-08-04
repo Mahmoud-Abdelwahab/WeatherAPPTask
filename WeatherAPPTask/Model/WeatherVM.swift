@@ -7,18 +7,16 @@
 
 import Foundation
 
-struct WeatherVM {
-    var cityName: String?
-    var temp: Double?
-    var humidity: Int?
+struct WeatherCellVM {
+    var temp: String?
+    var humidity: String?
     var weatherDescription: String?
     var dtTxt: String?
     
-    init(list: List,cityName: String) {
-        self.cityName           = cityName
-        self.temp               = list.main?.temp
-        self.humidity           = list.main?.humidity
+    init(list: List) {
+        self.temp               = "\(list.main?.temp ?? 0.0)º"
+        self.humidity           = "\(list.main?.humidity ?? 0)"
         self.weatherDescription = list.weather?.first?.weatherDescription
-        self.dtTxt              = list.dtTxt
+        self.dtTxt              = list.dtTxt?.toTimeFormat()
     }
 }

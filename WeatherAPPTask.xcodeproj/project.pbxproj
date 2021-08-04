@@ -25,6 +25,12 @@
 		A7F3320526B9F051002FCE71 /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F3320426B9F051002FCE71 /* BaseVC.swift */; };
 		A7F3320726B9F2AE002FCE71 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F3320626B9F2AE002FCE71 /* UIViewController+Ext.swift */; };
 		A7F3320B26B9F6A1002FCE71 /* WeatherVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F3320A26B9F6A1002FCE71 /* WeatherVM.swift */; };
+		A7F3321126B9F831002FCE71 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F3321026B9F831002FCE71 /* Constants.swift */; };
+		A7F3321526B9F994002FCE71 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F3321426B9F994002FCE71 /* AppError.swift */; };
+		A7F3322326BA3726002FCE71 /* NetworkLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F3322226BA3726002FCE71 /* NetworkLayer.swift */; };
+		A7F3322626BA4192002FCE71 /* RemoteSearchWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F3322526BA4192002FCE71 /* RemoteSearchWorker.swift */; };
+		A7F3322826BA42D1002FCE71 /* RemoteSearchWorkerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F3322726BA42D1002FCE71 /* RemoteSearchWorkerProtocol.swift */; };
+		A7F3322A26BA4B5C002FCE71 /* BaseRouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F3322926BA4B5C002FCE71 /* BaseRouterProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +75,12 @@
 		A7F3320426B9F051002FCE71 /* BaseVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
 		A7F3320626B9F2AE002FCE71 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
 		A7F3320A26B9F6A1002FCE71 /* WeatherVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherVM.swift; sourceTree = "<group>"; };
+		A7F3321026B9F831002FCE71 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		A7F3321426B9F994002FCE71 /* AppError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
+		A7F3322226BA3726002FCE71 /* NetworkLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLayer.swift; sourceTree = "<group>"; };
+		A7F3322526BA4192002FCE71 /* RemoteSearchWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteSearchWorker.swift; sourceTree = "<group>"; };
+		A7F3322726BA42D1002FCE71 /* RemoteSearchWorkerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteSearchWorkerProtocol.swift; sourceTree = "<group>"; };
+		A7F3322926BA4B5C002FCE71 /* BaseRouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRouterProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +131,8 @@
 		A7E7E28C26B8EA8D0007DADF /* WeatherAPPTask */ = {
 			isa = PBXGroup;
 			children = (
+				A7F3322426BA4140002FCE71 /* Worker */,
+				A7F3320C26B9F7AA002FCE71 /* Network Layer */,
 				A7F3320026B9F003002FCE71 /* Core */,
 				A7F331F026B9E9B6002FCE71 /* Module */,
 				A7F331E026B994A2002FCE71 /* Model */,
@@ -168,6 +182,7 @@
 		A7F331ED26B9E8BD002FCE71 /* Extentions */ = {
 			isa = PBXGroup;
 			children = (
+				A7F3320626B9F2AE002FCE71 /* UIViewController+Ext.swift */,
 				A7F331F226B9E9DF002FCE71 /* String+EXT.swift */,
 			);
 			path = Extentions;
@@ -187,9 +202,9 @@
 				A7E7E2BD26B911A20007DADF /* WeatherCell */,
 				A7F331F826B9ECD1002FCE71 /* WeatherVC.swift */,
 				A7F331F626B9EB9A002FCE71 /* WeatherProtocols.swift */,
-				A7F331F426B9EB2D002FCE71 /* WeatherRouter.swift */,
-				A7F331FC26B9EEE7002FCE71 /* WeatherInteractor.swift */,
 				A7F331FE26B9EEF8002FCE71 /* WeatherPresenter.swift */,
+				A7F331FC26B9EEE7002FCE71 /* WeatherInteractor.swift */,
+				A7F331F426B9EB2D002FCE71 /* WeatherRouter.swift */,
 				A7F331F926B9ECD1002FCE71 /* WeatherVC.xib */,
 			);
 			path = WeatherSearch;
@@ -198,20 +213,22 @@
 		A7F3320026B9F003002FCE71 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				A7F3320126B9F013002FCE71 /* Base VC and Protocols */,
+				A7F3320F26B9F81B002FCE71 /* Helpers */,
+				A7F3320126B9F013002FCE71 /* Base */,
 				A7F331ED26B9E8BD002FCE71 /* Extentions */,
 				A7E7E28D26B8EA8D0007DADF /* AppDelegate.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
 		};
-		A7F3320126B9F013002FCE71 /* Base VC and Protocols */ = {
+		A7F3320126B9F013002FCE71 /* Base */ = {
 			isa = PBXGroup;
 			children = (
 				A7F3320426B9F051002FCE71 /* BaseVC.swift */,
-				A7F3320626B9F2AE002FCE71 /* UIViewController+Ext.swift */,
+				A7F3321426B9F994002FCE71 /* AppError.swift */,
+				A7F3322926BA4B5C002FCE71 /* BaseRouterProtocol.swift */,
 			);
-			path = "Base VC and Protocols";
+			path = Base;
 			sourceTree = "<group>";
 		};
 		A7F3320826B9F63B002FCE71 /* Resources */ = {
@@ -228,6 +245,31 @@
 			children = (
 			);
 			path = Configuration;
+			sourceTree = "<group>";
+		};
+		A7F3320C26B9F7AA002FCE71 /* Network Layer */ = {
+			isa = PBXGroup;
+			children = (
+				A7F3322226BA3726002FCE71 /* NetworkLayer.swift */,
+			);
+			path = "Network Layer";
+			sourceTree = "<group>";
+		};
+		A7F3320F26B9F81B002FCE71 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				A7F3321026B9F831002FCE71 /* Constants.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		A7F3322426BA4140002FCE71 /* Worker */ = {
+			isa = PBXGroup;
+			children = (
+				A7F3322726BA42D1002FCE71 /* RemoteSearchWorkerProtocol.swift */,
+				A7F3322526BA4192002FCE71 /* RemoteSearchWorker.swift */,
+			);
+			path = Worker;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -362,17 +404,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				A7F331F726B9EB9A002FCE71 /* WeatherProtocols.swift in Sources */,
+				A7F3322A26BA4B5C002FCE71 /* BaseRouterProtocol.swift in Sources */,
 				A7F3320526B9F051002FCE71 /* BaseVC.swift in Sources */,
 				A7F3320726B9F2AE002FCE71 /* UIViewController+Ext.swift in Sources */,
 				A7E7E2C126B911D90007DADF /* WeatherCell.swift in Sources */,
 				A7F331E226B994BA002FCE71 /* WeatherResponse.swift in Sources */,
 				A7F3320B26B9F6A1002FCE71 /* WeatherVM.swift in Sources */,
+				A7F3322326BA3726002FCE71 /* NetworkLayer.swift in Sources */,
 				A7F331FA26B9ECD1002FCE71 /* WeatherVC.swift in Sources */,
+				A7F3322826BA42D1002FCE71 /* RemoteSearchWorkerProtocol.swift in Sources */,
+				A7F3321526B9F994002FCE71 /* AppError.swift in Sources */,
 				A7F331F326B9E9DF002FCE71 /* String+EXT.swift in Sources */,
 				A7F331FF26B9EEF8002FCE71 /* WeatherPresenter.swift in Sources */,
 				A7E7E28E26B8EA8D0007DADF /* AppDelegate.swift in Sources */,
+				A7F3321126B9F831002FCE71 /* Constants.swift in Sources */,
 				A7F331F526B9EB2D002FCE71 /* WeatherRouter.swift in Sources */,
 				A7F331FD26B9EEE7002FCE71 /* WeatherInteractor.swift in Sources */,
+				A7F3322626BA4192002FCE71 /* RemoteSearchWorker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

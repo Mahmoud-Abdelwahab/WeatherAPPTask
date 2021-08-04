@@ -9,20 +9,19 @@ import Foundation
 
 class WeatherInteractor {
     weak var presenter: WeatherInteractorOutputProtocol?
-   // var remoteLeagueTeamsWorker = RemoteLeagueTeamsWorker()
+    var remoteSearchWorker: RemoteSearchWorkerProtocol?
 }
 
 extension WeatherInteractor: WeatherInteractorInputProtocol{
     
- //   func getPremierLeagueTeamList() {
-//        remoteLeagueTeamsWorker.getPremierLeagueTeamList {[weak self] result in
-//            guard let self = self else{return}
-//            switch result{
-//            case .success(let teamList):
-//                self.presenter?.teamListFetchedSuccessfully(teams: teamList.teams ?? [])
-//            case .failure(let error):
-//                self.presenter?.teamFetchingFailed(with: error)
-//            }
-//        }
-//    }
+    func doSearch(with cityName: String) {
+        remoteSearchWorker?.weatherSearchByCityName(cityName: cityName){[weak self] response , error in
+                guard let self = self else {return}
+            guard let response = response else{
+                self.presenter?.weatherFetchingFailed(with: error!)
+                return
+            }
+            self.presenter?.weatherListFetchedSuccessfully(weather: response)
+            }
+        }
 }

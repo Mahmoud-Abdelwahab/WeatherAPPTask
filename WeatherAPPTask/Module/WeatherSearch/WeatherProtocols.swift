@@ -9,17 +9,25 @@ import Foundation
 
 protocol WeatherViewProtocol:BaseViewControllerProtocol, AnyObject{
     var presenter: WeatherPresenterProtocol?{get set}
+    var weatherListDataSource:[List]?{get set}
+    
+    func configureWeatherTableView()
+    func configureUI(weatherList: [List])
+    func configureDialogView(isHidden: Bool ,buttonIsHidden: Bool, message: String)
+    func showHideDialog(isHidden: Bool)
+    func emptyView()
 }
 
 protocol WeatherPresenterProtocol:AnyObject{
     var view: WeatherViewProtocol?{get set}
     
     func viewDidLoad()
-   // func configueCell(cell: TeamCellViewProtocol, team: Team?)
+    func doSearch(with cityName: String?)
+    func configueCell(cell: WeatherCellViewProtocol, weatherList: List?)
 }
 
 // Router
-protocol WeatherRouterProtocol:AnyObject {
+protocol WeatherRouterProtocol:BaseRouterProtocol {
 
 }
 
@@ -27,19 +35,21 @@ protocol WeatherRouterProtocol:AnyObject {
 
 protocol  WeatherInteractorInputProtocol {
     var presenter: WeatherInteractorOutputProtocol?{get set}
-   // func getPremierLeagueTeamList()
+    var remoteSearchWorker: RemoteSearchWorkerProtocol?{get set}
+    
+    func doSearch(with cityName: String)
+    
 }
 
 protocol  WeatherInteractorOutputProtocol:AnyObject {
-//    func teamListFetchedSuccessfully(teams: [Team])
-//    func teamFetchingFailed(with error: String)
+    func weatherListFetchedSuccessfully(weather: WeatherResponse)
+    func weatherFetchingFailed(with error: String)
 }
 
 // Cell
 
 protocol WeatherCellViewProtocol {
-   
- //   func configure(viewModel: TeamListVM)
+   func configure(viewModel: WeatherCellVM)
 }
 
 
