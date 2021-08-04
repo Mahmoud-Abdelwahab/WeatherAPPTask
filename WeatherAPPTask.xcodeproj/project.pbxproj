@@ -34,11 +34,9 @@
 		A7F3322D26BA7DA2002FCE71 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = A7F3322C26BA7DA2002FCE71 /* RealmSwift */; };
 		A7F3323126BA7ED3002FCE71 /* LocalSearchWorkerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F3323026BA7ED3002FCE71 /* LocalSearchWorkerProtocol.swift */; };
 		A7F3323326BA7EEC002FCE71 /* LocalSearchWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F3323226BA7EEC002FCE71 /* LocalSearchWorker.swift */; };
-		A7F3323726BA820C002FCE71 /* RealManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F3323626BA820C002FCE71 /* RealManger.swift */; };
+		A7F3323726BA820C002FCE71 /* RealmManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F3323626BA820C002FCE71 /* RealmManger.swift */; };
 		A7F3323926BA8291002FCE71 /* LocalWeatherVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F3323826BA8291002FCE71 /* LocalWeatherVM.swift */; };
 		A7F3323B26BAAFF4002FCE71 /* AppHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F3323A26BAAFF4002FCE71 /* AppHelper.swift */; };
-		A7F3324126BAF145002FCE71 /* NetworkLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F3322226BA3726002FCE71 /* NetworkLayer.swift */; };
-		A7F3324226BAF149002FCE71 /* RealManger.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F3323626BA820C002FCE71 /* RealManger.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,7 +89,7 @@
 		A7F3322926BA4B5C002FCE71 /* BaseRouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseRouterProtocol.swift; sourceTree = "<group>"; };
 		A7F3323026BA7ED3002FCE71 /* LocalSearchWorkerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalSearchWorkerProtocol.swift; sourceTree = "<group>"; };
 		A7F3323226BA7EEC002FCE71 /* LocalSearchWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalSearchWorker.swift; sourceTree = "<group>"; };
-		A7F3323626BA820C002FCE71 /* RealManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealManger.swift; sourceTree = "<group>"; };
+		A7F3323626BA820C002FCE71 /* RealmManger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManger.swift; sourceTree = "<group>"; };
 		A7F3323826BA8291002FCE71 /* LocalWeatherVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalWeatherVM.swift; sourceTree = "<group>"; };
 		A7F3323A26BAAFF4002FCE71 /* AppHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -318,7 +316,7 @@
 		A7F3323526BA7F32002FCE71 /* Realm Manager */ = {
 			isa = PBXGroup;
 			children = (
-				A7F3323626BA820C002FCE71 /* RealManger.swift */,
+				A7F3323626BA820C002FCE71 /* RealmManger.swift */,
 			);
 			path = "Realm Manager";
 			sourceTree = "<group>";
@@ -473,7 +471,7 @@
 				A7F3322826BA42D1002FCE71 /* RemoteSearchWorkerProtocol.swift in Sources */,
 				A7F3321526B9F994002FCE71 /* AppError.swift in Sources */,
 				A7F3323126BA7ED3002FCE71 /* LocalSearchWorkerProtocol.swift in Sources */,
-				A7F3323726BA820C002FCE71 /* RealManger.swift in Sources */,
+				A7F3323726BA820C002FCE71 /* RealmManger.swift in Sources */,
 				A7F331F326B9E9DF002FCE71 /* String+EXT.swift in Sources */,
 				A7F3323B26BAAFF4002FCE71 /* AppHelper.swift in Sources */,
 				A7F331FF26B9EEF8002FCE71 /* WeatherPresenter.swift in Sources */,
@@ -490,8 +488,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A7F3324226BAF149002FCE71 /* RealManger.swift in Sources */,
-				A7F3324126BAF145002FCE71 /* NetworkLayer.swift in Sources */,
 				A7E7E2A526B8EA910007DADF /* WeatherAPPTaskTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -22,10 +22,10 @@
                         <rect key="frame" x="7" y="7" width="282" height="65"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="rTd-LY-Edy">
-                                <rect key="frame" x="20" y="3" width="242" height="59"/>
+                                <rect key="frame" x="30" y="3" width="222" height="59"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="dkZ-lS-xK9">
-                                        <rect key="frame" x="0.0" y="0.0" width="242" height="25.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="222" height="25.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="tempreture" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wpx-mR-HID">
                                                 <rect key="frame" x="0.0" y="0.0" width="90.5" height="25.5"/>
@@ -34,7 +34,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MTX-hT-GuN">
-                                                <rect key="frame" x="193.5" y="0.0" width="48.5" height="25.5"/>
+                                                <rect key="frame" x="173.5" y="0.0" width="48.5" height="25.5"/>
                                                 <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="18"/>
                                                 <color key="textColor" red="0.38470923899999998" green="0.80447971819999997" blue="0.97257417440000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
@@ -42,7 +42,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="FlL-y3-WaM">
-                                        <rect key="frame" x="0.0" y="33.5" width="242" height="25.5"/>
+                                        <rect key="frame" x="0.0" y="33.5" width="222" height="25.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="humedity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xZw-Tc-3gJ">
                                                 <rect key="frame" x="0.0" y="0.0" width="74.5" height="25.5"/>
@@ -51,7 +51,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="houre" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NZi-Z5-ZPy">
-                                                <rect key="frame" x="196" y="0.0" width="46" height="25.5"/>
+                                                <rect key="frame" x="176" y="0.0" width="46" height="25.5"/>
                                                 <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="18"/>
                                                 <color key="textColor" red="0.38470923899999998" green="0.80447971819999997" blue="0.97257417440000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
@@ -63,9 +63,9 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="rTd-LY-Edy" secondAttribute="trailing" constant="20" id="Edr-mq-xhX"/>
+                            <constraint firstAttribute="trailing" secondItem="rTd-LY-Edy" secondAttribute="trailing" constant="30" id="Edr-mq-xhX"/>
                             <constraint firstItem="rTd-LY-Edy" firstAttribute="top" secondItem="hfv-mc-6mh" secondAttribute="top" constant="3" id="Z7P-Ob-5MT"/>
-                            <constraint firstItem="rTd-LY-Edy" firstAttribute="leading" secondItem="hfv-mc-6mh" secondAttribute="leading" constant="20" id="ebw-el-pYT"/>
+                            <constraint firstItem="rTd-LY-Edy" firstAttribute="leading" secondItem="hfv-mc-6mh" secondAttribute="leading" constant="30" id="ebw-el-pYT"/>
                             <constraint firstAttribute="bottom" secondItem="rTd-LY-Edy" secondAttribute="bottom" constant="3" id="iSN-Pc-aXY"/>
                         </constraints>
                     </view>

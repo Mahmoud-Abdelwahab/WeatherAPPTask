@@ -19,7 +19,7 @@ extension WeatherInteractor: WeatherInteractorInputProtocol{
         remoteSearchWorker?.weatherSearchByCityName(cityName: cityName){[weak self] response , error in
             guard let self = self else {return}
             guard let response = response else{
-                self.localSearch(with: cityName)
+                error == AppError.invalidResponse.localizedDescription ?  self.presenter?.weatherFetchingFailed(with: error!): self.localSearch(with: cityName)
                 return
             }
             self.presenter?.remoteWeatherListFetchedSuccessfully(weather: response)

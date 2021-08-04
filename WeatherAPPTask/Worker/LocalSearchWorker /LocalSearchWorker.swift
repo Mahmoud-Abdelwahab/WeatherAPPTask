@@ -8,7 +8,7 @@
 import Foundation
 
 class LocalSearchWorker {
-    var  localManager =   RealManger.shared
+    var  localManager =   RealmManger.shared
 }
 
 extension LocalSearchWorker: LocalSearchWorkerProtocol{

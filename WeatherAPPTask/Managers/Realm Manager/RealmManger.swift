@@ -1,5 +1,5 @@
 //
-//  RealManger.swift
+//  RealmManger.swift
 //  WeatherAPPTask
 //
 //  Created by Mahmoud Abdul-Wahab on 04/08/2021.
@@ -9,8 +9,8 @@
 import Foundation
 import RealmSwift
 
-class RealManger {
-    static let shared  = RealManger()
+class RealmManger {
+    static let shared  = RealmManger()
    
     private init(){}
 
@@ -18,7 +18,7 @@ class RealManger {
         let predicate = NSPredicate(format: "cityName BEGINSWITH [c]%@", cityName)
          let realm = try! Realm()
               guard let searchResults =  realm.objects(LocalWeather.self).filter(predicate).first else{
-                completed(nil,"No Local Weather Found ")
+                completed(nil,"No Weather Found")
                 return
             }
              completed(searchResults,nil)
