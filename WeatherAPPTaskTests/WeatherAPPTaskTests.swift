@@ -16,14 +16,14 @@ class WeatherAPPTaskTests: XCTestCase {
     let guessCount = 16
     var count = 0
     var currentCityName = ""
-
+    
     
     func test_Weather_Response_count(){
-    
+        
         let countExpectation = expectation(description: "the list count = 16")
         remoteRepository.weatherSearchByCityName(cityName: cityName) {[weak self] response, error in
             guard let self = self else {return}
-        
+            
             guard let response = response else{
                 self.localRepository.addCountryWeather(localWeather:  AppHelper.mappingRemoteWeatherToLocalWeather(weatherResponse: response!))
                 return
@@ -38,32 +38,27 @@ class WeatherAPPTaskTests: XCTestCase {
         
     }
     
-
-        func test_Local_Weather_Response(){
-            let cairoWeatherExpectation = expectation(description: "Cairo weather found in cash")
-            
-            localRepository.weatherSearchByCityName(cityName: cityName) {[weak self] result, error in
-                guard let self = self else {return}
-                    guard let result = result else{
-                        print(error)
-                        return
-                    }
-                print(result)
-                self.currentCityName = result.cityName
-                cairoWeatherExpectation.fulfill()
+    func test_Local_Weather_Response(){
+        let cairoWeatherExpectation = expectation(description: "Cairo weather found in cash")
+        
+        localRepository.weatherSearchByCityName(cityName: cityName) {[weak self] result, error in
+            guard let self = self else {return}
+            guard let result = result else{
+                return
             }
-    
-            waitForExpectations(timeout: 70) { error in
-                XCTAssertEqual(self.currentCityName, self.cityName, "Cairo weather not found")
-            }
-    
+            print(result)
+            self.currentCityName = result.cityName
+            cairoWeatherExpectation.fulfill()
         }
-    
-    
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        
+        waitForExpectations(timeout: 70) { error in
+            XCTAssertEqual(self.currentCityName, self.cityName, "Cairo weather not found")
+        }
+        
     }
+    
+    
+    func testExample() throws {}
     
     func testPerformanceExample() throws {
         // This is an example of a performance test case.

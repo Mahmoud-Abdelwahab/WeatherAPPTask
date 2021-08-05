@@ -27,12 +27,7 @@ protocol WeatherPresenterProtocol:AnyObject{
     func configueCell(cell: WeatherCellViewProtocol, weatherList: WeatherList?)
 }
 
-// Router
-protocol WeatherRouterProtocol:BaseRouterProtocol {
-
-}
-
-// Interactor
+protocol WeatherRouterProtocol:BaseRouterProtocol {}
 
 protocol  WeatherInteractorInputProtocol {
     var presenter: WeatherInteractorOutputProtocol?{get set}
@@ -41,7 +36,6 @@ protocol  WeatherInteractorInputProtocol {
     
     func remoteSearch(with cityName: String)
     func localSearch(with cityName: String)
-    
 }
 
 protocol  WeatherInteractorOutputProtocol:AnyObject {
@@ -50,10 +44,8 @@ protocol  WeatherInteractorOutputProtocol:AnyObject {
     func weatherFetchingFailed(with error: String)
 }
 
-// Cell
-
 protocol WeatherCellViewProtocol {
-   func configure(viewModel: WeatherCellVM)
+    func configure(viewModel: WeatherCellVM)
 }
 
 

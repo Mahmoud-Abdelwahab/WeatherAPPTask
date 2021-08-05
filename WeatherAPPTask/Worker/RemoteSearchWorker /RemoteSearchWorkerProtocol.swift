@@ -7,7 +7,7 @@
 
 import Foundation
 protocol RemoteSearchWorkerProtocol {
-     var  manager: NetworkManager { get }
-
+    var  manager: NetworkManager { get }
+    
     func weatherSearchByCityName(cityName: String,completionHandler: @escaping (WeatherResponse?, String?) -> Void)
 }

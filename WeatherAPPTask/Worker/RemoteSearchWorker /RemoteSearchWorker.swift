@@ -10,7 +10,7 @@ class RemoteSearchWorker {
 }
 
 extension RemoteSearchWorker: RemoteSearchWorkerProtocol{
-
+    
     func weatherSearchByCityName(cityName: String,completionHandler:@escaping (WeatherResponse?, String?) -> Void){
         manager.searchByCityName(for: cityName, completed: completionHandler)
     }

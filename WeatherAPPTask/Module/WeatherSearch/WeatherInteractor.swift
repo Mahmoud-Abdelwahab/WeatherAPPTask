@@ -39,5 +39,4 @@ extension WeatherInteractor: WeatherInteractorInputProtocol{
             self.presenter?.localWeatherListFetchedSuccessfully(weather: weatherObject)
         }
     }
-    
 }

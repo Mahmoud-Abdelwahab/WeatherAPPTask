@@ -8,7 +8,7 @@
 import UIKit
 
 class WeatherVC: UIViewController {
-
+    
     @IBOutlet weak var notAcuurateDataLable: UILabel!
     @IBOutlet weak var dialogMessageLable: UILabel!
     @IBOutlet weak var retryButton: UIButton!
@@ -23,9 +23,9 @@ class WeatherVC: UIViewController {
         super.viewDidLoad()
         presenter?.viewDidLoad()
         configureWeatherTableView()
-    
+        
     }
-
+    
     @IBAction func didTapSearchBtn(_ sender: Any) {
         presenter?.doSearch(with: searchTF.text)
     }
@@ -33,16 +33,13 @@ class WeatherVC: UIViewController {
     @IBAction func didTapRetryBtn(_ sender: Any) {
         presenter?.doSearch(with: searchTF.text)
     }
-    
 }
 
 
-
 extension WeatherVC: WeatherViewProtocol{
-
+    
     func configureWeatherTableView(){
-        searchTF.addTarget(self, action: #selector(textFieldDidChange(_:)),
-                                  for: .editingChanged)
+        searchTF.addTarget(self, action: #selector(textFieldDidChange(_:)),for: .editingChanged)
         
         weatherTableView.dataSource   = self
         weatherTableView.register(WeatherCell.nib(), forCellReuseIdentifier: WeatherCell.identifier)

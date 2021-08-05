@@ -8,8 +8,8 @@
 
 import Foundation
 protocol LocalSearchWorkerProtocol {
-     var  localManager: RealmManger { get }
-
+    var  localManager: RealmManger { get }
+    
     func addCountryWeather(localWeather: LocalWeather)
     func weatherSearchByCityName(cityName: String,completionHandler: @escaping (LocalWeather?, String?) -> Void)
     

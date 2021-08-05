@@ -10,7 +10,7 @@ import Foundation
 protocol BaseViewControllerProtocol {
     func showLoadingIndicatore()
     func hideLoadingIndicatore()
- 
+    
 }
 
 extension BaseViewControllerProtocol{
